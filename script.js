@@ -30,3 +30,10 @@ function funzionePosizioneTrovata(position){
 function funzioneErrorePosizione(){
     window.alert(error.message);
 }
+
+
+
+function storageLastDate(){
+    localStorage.setItem('date', Date.now());
+}
+
