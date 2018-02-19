@@ -35,15 +35,26 @@ function funzioneErrorePosizione(){
 
 
 
-
+//Questa funzione mi permette di andare a recuperare l'ultima data a cui ho fatto accesso
 function restoreLastDate(){
-    //Recupero le informazioni dalla memoria locale
-    var lastDay = localStorage['lastDay'];
-    var lastMonth = localStorage['lastMonth'];
-    var lastYear = localStorage['lastYear'];
+    var lastDay;
+    var lastMonth;
+    var lastYear;
+    var data = new Date();
+
+    if(localStorage && localStorage['lastDay'] && localStorage['lastMonth'] && localStorage['lastYear']){
+        //Recupero le informazioni dalla memoria locale se sono presenti
+        lastDay = localStorage['lastDay'];
+        lastMonth = localStorage['lastMonth'];
+        lastYear = localStorage['lastYear'];
+    } else {
+        //In caso contrario inserisco quelle attuali
+        lastDay = data.getDate();
+        lastMonth = data.getMonth();
+        lastYear = data.getFullYear();
+    }
 
     //Memorizzo data ed ora attuali nella memoria locale per un futuro riutilizzo
-    var data = new Date();
     localStorage.setItem('lastDay', data.getDate());
     localStorage.setItem('lastMonth', data.getMonth());
     localStorage.setItem('lastYear', data.getFullYear());
@@ -51,4 +62,22 @@ function restoreLastDate(){
     //Mostro l'ultimo accesso a video: ricordati di vedere il tag di Nic
     lastMonth++;
     document.getElementById('data').textContent = 'Data ultimo accesso: ' + lastDay + '.' + lastMonth + '.' + lastYear;       
+}
+
+
+
+//Questa funzione mi permette di andare a recuperare il nome della persona se esiste
+function restoreName(){
+    if(localStorage && localStorage['name']){
+        document.getElementById('name').textContent = localStorage['name'];     //Ricordati di andare a vedere il nome come lo ha fatto Nic
+    } else{
+        localStorage['name'] = 'Giovanni';
+        document.getElementById('name').textContent = 'Giovanni';
+    }
+}
+
+//Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
+function initFunction(){
+    restoreName();
+    restoreLastDate();
 }
