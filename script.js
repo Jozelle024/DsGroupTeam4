@@ -33,15 +33,22 @@ function funzioneErrorePosizione(){
 
 
 
-function storageLastDate(){
-    localStorage.setItem('date', Date.now());
-}
+
 
 
 function restoreLastDate(){
-    var lastDate = localStorage['date'];
-    var year = lastDate.substr(0,4);
-    var month = lastDate.substr(5,2);
-    var day = lastDate.substr(8,2);
-    document.getElementById('data').textContent = day + '.' + month + '.' + year;       
+    //Recupero le informazioni dalla memoria locale
+    var lastDay = localStorage['lastDay'];
+    var lastMonth = localStorage['lastMonth'];
+    var lastYear = localStorage['lastYear'];
+
+    //Memorizzo data ed ora attuali nella memoria locale per un futuro riutilizzo
+    var data = new Date();
+    localStorage.setItem('lastDay', data.getDate());
+    localStorage.setItem('lastMonth', data.getMonth());
+    localStorage.setItem('lastYear', data.getFullYear());
+
+    //Mostro l'ultimo accesso a video: ricordati di vedere il tag di Nic
+    lastMonth++;
+    document.getElementById('data').textContent = 'Data ultimo accesso: ' + lastDay + '.' + lastMonth + '.' + lastYear;       
 }
