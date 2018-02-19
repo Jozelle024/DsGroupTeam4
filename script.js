@@ -18,7 +18,7 @@ function funzionePosizioneTrovata(position){
             zoom: 16
         };
 
-        var map = new google.maps.Map(document.getElementById('mappa'), mapProperties);
+        var map = new google.maps.Map(document.getElementById('mappa'), mapProperties); //Devi vedere come la chiama Nic nell'HTML
         var marker = new google.maps.Marker({
             position: mapProperties.center,
             map: map
@@ -37,3 +37,11 @@ function storageLastDate(){
     localStorage.setItem('date', Date.now());
 }
 
+
+function restoreLastDate(){
+    var lastDate = localStorage['date'];
+    var year = lastDate.substr(0,4);
+    var month = lastDate.substr(5,2);
+    var day = lastDate.substr(8,2);
+    document.getElementById('data').textContent = day + '.' + month + '.' + year;       
+}
