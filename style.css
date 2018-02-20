@@ -101,7 +101,7 @@ nav ul li a:hover{
 }
 main{
     width:100%;
-    background-color:#46EAEE;
+    background-color:#3AB3EB;
     float:left;
     padding-bottom:7%;
 
@@ -116,22 +116,30 @@ td, th {
     border: 1px solid #004749;
     text-align: left;
     padding: 8px;
+    color:#002530;
 }
 
 tr:nth-child(even) {
-    background-color: #36B2AE;
+    background-color: #14CCEB;
 }
 .meteostats{
     text-align:center;
     padding-top:3%;
 }
+.meteostats img{
+    width:11%;
+}
 .meteostats h1{
     font-family:'Roboto', sans-serif;
     font-size:40px;
-    color:#54A1AF;
+    color:#00E2F2;
 }
 #maininfo{
     padding-bottom:2%;
+    color:#00E2F2;
+    font-size:30px;
+    font-family:'Roboto', sans-serif;
+
 }
 footer{
     width:100%;
@@ -139,22 +147,27 @@ footer{
     background-color:#00302F;
     clear:both;
 }
+footer ul{
+    margin-left:5%;
+}
 footer ul li{
     list-style:none;
     display:inline;
+    margin-left:2%;
 }
 footer ul li a{
     text-decoration:none;
     font-size:20px;
-    color:white;
+    color:#36A1AF;
     
 }
 #navfooter{
     padding-top:3%;
     float:right;
+    color:#36A1AF;
 }
 #copyright{
-    color:#A1AFB2;
+    color:#6FABB2;
     clear:both;
     padding-top:1%;
     width:80%;
