@@ -123,10 +123,10 @@ function restoreLastDate(){
 //Questa funzione mi permette di andare a recuperare il nome della persona se esiste
 function restoreName(){
     if(localStorage && localStorage['name']){
-        document.getElementById('name').textContent = localStorage['name'];   
+        document.getElementById('name').textContent = 'Bentornato, ' + localStorage['name'];   
     } else{
         localStorage['name'] = 'Giovanni';
-        document.getElementById('name').textContent = 'Giovanni';
+        document.getElementById('name').textContent = 'Benvenuto, Giovanni';
     }
 }
 
