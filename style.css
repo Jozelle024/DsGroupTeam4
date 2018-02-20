@@ -54,7 +54,7 @@ nav ul li a:hover{
 #logo img{
     margin-left:6%;
 }
-#position img{
+#headerPrincipale img{
     margin-top:1%;
     width:29%;
 }
@@ -92,7 +92,7 @@ nav ul li a:hover{
     background-color:#3AB3EB;
     
 }
-#position p{
+#position{
     font-family:'Roboto Condensed', sans-serif;
     font-size:20px;
     text-align:center;
