@@ -1,5 +1,30 @@
+//Questa funzione mi permette di recuperare le informazioni precedenti e mi permette di fare il reverse geocoding
+function reverseGeocoding(){
+    var latitude = parseFloat(localStorage['latitudine']);
+    var longitude = parseFloat(localStorage['longitudine']);
+    var geocoder = new google.maps.Geocoder();
 
-function funzioneCallbackMaps(){
+    var latlng = {
+        lat: latitude,
+        lng: longitude
+    }
+    
+    geocoder.geocode({'location': latlng}, function(results, status){
+        if(status === 'OK'){
+            if(results[0]){
+                document.getElementById('position').textContent = 'Ultima posizione è stata: ' + results[0].formatted_address;
+            } else{
+                alert('Nessun risultato trovato');
+            }
+        } else{
+            alert('Geocoding fallita ' + status);
+        }
+    })
+}
+
+
+//Disegna la mappa
+function drawMaps(){
     if('geolocation' in navigator){
         navigator.geolocation.getCurrentPosition(funzionePosizioneTrovata, funzioneErrorePosizione);
     } else {
@@ -7,11 +32,20 @@ function funzioneCallbackMaps(){
     }
 }
 
+function funzioneCallbackMaps(){
+    drawMaps();
+    reverseGeocoding();
+}
+
 
 function funzionePosizioneTrovata(position){
     if(position && position.coords){
         var latitudine = position.coords.latitude;
         var longitudine = position.coords.longitude;
+
+        //Vado a salvare queste informazioni per poi il recupero futuro
+        localStorage['latitudine'] = latitudine;
+        localStorage['longitudine'] = longitudine;
 
         var mapProperties = {
             center: new google.maps.LatLng(latitudine, longitudine),
@@ -75,6 +109,8 @@ function restoreName(){
         document.getElementById('name').textContent = 'Giovanni';
     }
 }
+
+
 
 //Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
 function initFunction(){
