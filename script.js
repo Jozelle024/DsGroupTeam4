@@ -1,14 +1,25 @@
-//Questa funzione mi permette di recuperare le informazioni precedenti e mi permette di fare il reverse geocoding
+//Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
+// effettua il reverse geocoding e mostra le informazioni nel paragrafo p
 function reverseGeocoding(){
-    var latitude = parseFloat(localStorage['latitudine']);
-    var longitude = parseFloat(localStorage['longitudine']);
+    //Recupero le informazioni
+    var latitude;
+    var longitude;
     var geocoder = new google.maps.Geocoder();
+    if(localStorage && localStorage['latitudine'] && localStorage ['longitudine']){
+        latitude = parseFloat(localStorage['latitudine']);
+        longitude = parseFloat(localStorage['longitudine']);
+    } else{
+        latitude = 45.46417;
+        longitude = 9.190557;
+    }
+    
 
     var latlng = {
         lat: latitude,
         lng: longitude
     }
     
+    //Ricavo la posizione
     geocoder.geocode({'location': latlng}, function(results, status){
         if(status === 'OK'){
             if(results[0]){
@@ -23,6 +34,7 @@ function reverseGeocoding(){
 }
 
 
+
 //Disegna la mappa
 function drawMaps(){
     if('geolocation' in navigator){
@@ -32,10 +44,6 @@ function drawMaps(){
     }
 }
 
-function funzioneCallbackMaps(){
-    drawMaps();
-    reverseGeocoding();
-}
 
 
 function funzionePosizioneTrovata(position){
@@ -52,7 +60,7 @@ function funzionePosizioneTrovata(position){
             zoom: 16
         };
 
-        var map = new google.maps.Map(document.getElementById('mappa'), mapProperties); //Devi vedere come la chiama Nic nell'HTML
+        var map = new google.maps.Map(document.getElementById('mappa'), mapProperties); 
         var marker = new google.maps.Marker({
             position: mapProperties.center,
             map: map
@@ -61,9 +69,21 @@ function funzionePosizioneTrovata(position){
 }
 
 
+
+//Questa funzione mi permette di gestire il caso in cui c'è un errore sulla posizione della Geolocalizzazione
 function funzioneErrorePosizione(){
-    window.alert(error.message);
+    window.alert('ATTENZIONE:\nNon posso rilevare le informazioni meteorologiche se non consenti l\'accesso al servizio di Geolocalizzazione!');
 }
+
+
+//Questa funzione è una funzione wrapper 
+function funzioneCallbackMaps(){
+    drawMaps();
+    reverseGeocoding();
+}
+
+
+
 
 
 
@@ -93,7 +113,7 @@ function restoreLastDate(){
     localStorage.setItem('lastMonth', data.getMonth());
     localStorage.setItem('lastYear', data.getFullYear());
 
-    //Mostro l'ultimo accesso a video: ricordati di vedere il tag di Nic
+    //Mostro l'ultimo accesso a video
     lastMonth++;
     document.getElementById('data').textContent = 'Data ultimo accesso: ' + lastDay + '.' + lastMonth + '.' + lastYear;       
 }
@@ -103,7 +123,7 @@ function restoreLastDate(){
 //Questa funzione mi permette di andare a recuperare il nome della persona se esiste
 function restoreName(){
     if(localStorage && localStorage['name']){
-        document.getElementById('name').textContent = localStorage['name'];     //Ricordati di andare a vedere il nome come lo ha fatto Nic
+        document.getElementById('name').textContent = localStorage['name'];   
     } else{
         localStorage['name'] = 'Giovanni';
         document.getElementById('name').textContent = 'Giovanni';
