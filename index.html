@@ -5,26 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Team4</title>
-    <link rel="stylesheet" href="DsGroupTeam4/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Roboto:300i" rel="stylesheet">
 </head>
 <body onload="initFunction()">
     <header>
+            <nav>
+                <div id="position">
+                    <div id="logo"><img src="http://icons.iconarchive.com/icons/icons8/ios7/128/Weather-Partly-Cloudy-Rain-icon.png">
+                    </div>
+                        <div id="Team4"><H1>TEAM 4</H1></div> 
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Weather</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+    <div id="status">
         <div id="name">
             <p>Mario Bentornato</p>
         </div>
         <div id="data">
             <p>Ultimo Accesso il 19/02/2018 alle ore 17:00</p>
         </div>
-        <nav>
-            <div id="logo"><img src="http://icons.iconarchive.com/icons/icons8/ios7/128/Weather-Partly-Cloudy-Rain-icon.png">
-                <div id="Team4"><H1>Team4</H1></div>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Weather</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+
+    </div>
+    <div id="social">
+        <ul>
+        <li><a href="#"><i class="fab fa-facebook-f fa-3x"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram fa-3x"></i></a></li>
+        <li><a href="#"><i class="fab fa-google-plus-g fa-3x"></i></a ></li>
+        <li><a href="#"><i class="fab fa-twitter fa-3x"></i></a></li>
+    </ul>
+    </div>
+        
     </header>
     <div id="position">
         <p>Ti trovi ultimamente a Firenze</p>
@@ -88,4 +103,5 @@
     </footer>
 </body>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA&callback=funzioneCallbackMaps"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </html>
