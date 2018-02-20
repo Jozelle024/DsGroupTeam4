@@ -7,12 +7,12 @@
     <title>Team4</title>
     <link rel="stylesheet" href="DsGroupTeam4/style.css">
 </head>
-<body>
+<body onload="initFunction()">
     <header>
-        <div id="user">
+        <div id="name">
             <p>Mario Bentornato</p>
         </div>
-        <div id="lastaccess">
+        <div id="data">
             <p>Ultimo Accesso il 19/02/2018 alle ore 17:00</p>
         </div>
         <nav>
@@ -26,9 +26,10 @@
             </ul>
         </nav>
     </header>
-    <div id="Position">
+    <div id="position">
         <p>Ti trovi ultimamente a Firenze</p>
     </div>
+    <div id="mappa"></div>
 
     <main>
         <section class="meteostats">
@@ -82,8 +83,10 @@
     
     <footer>
         
-        </div>
+        
 
     </footer>
 </body>
+<script src="googlemap.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA&callback=miaFunzioneCallback"></script>
 </html>
