@@ -137,3 +137,22 @@ function initFunction(){
     restoreName();
     restoreLastDate();
 }
+
+
+
+window.addEventListener('resize', function(){
+    if(window.innerWidth <= 880){
+        document.getElementById('social').style.display = 'none';
+    } else {
+        document.getElementById('social').style.display = 'inline';
+    }
+
+    var elementNavigation = ['homeLink', 'weatherLink', 'newsLink', 'contactLink'];
+    for(var i = 0; i < elementNavigation.length; i++){
+        if(window.innerWidth <= 430){
+            document.getElementById(elementNavigation[i]).style.fontSize = '16pt';
+        } else {
+            document.getElementById(elementNavigation[i]).style.fontSize = '30pt'
+        }
+    }
+})
