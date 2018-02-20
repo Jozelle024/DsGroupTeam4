@@ -80,6 +80,7 @@ nav ul li a:hover{
     clear: both;
     float: right;
     width:33%;
+    padding-top:1%;
     
 }
 #mappa {
@@ -127,10 +128,34 @@ tr:nth-child(even) {
 .meteostats h1{
     font-family:'Roboto', sans-serif;
     font-size:40px;
+    color:#54A1AF;
+}
+#maininfo{
+    padding-bottom:2%;
 }
 footer{
     width:100%;
     height:150px;
     background-color:#00302F;
     clear:both;
+}
+footer ul li{
+    list-style:none;
+    display:inline;
+}
+footer ul li a{
+    text-decoration:none;
+    font-size:20px;
+    color:white;
+    
+}
+#navfooter{
+    padding-top:3%;
+    float:right;
+}
+#copyright{
+    color:#A1AFB2;
+    clear:both;
+    padding-top:1%;
+    width:80%;
 }
