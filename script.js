@@ -65,6 +65,8 @@ function funzionePosizioneTrovata(position){
             position: mapProperties.center,
             map: map
         });
+
+        document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];' 
     }
 }
 
@@ -138,8 +140,10 @@ function bindingJSON(){
 
     var sunrise = moment(meteo.sys.sunrise * 1000);
     var sunset = moment(meteo.sys.sunset * 1000);
+    var now = moment(Date.now());
     sunrise.locale('it');
     sunset.locale('it')
+    now.locale('it');
     sunrise = sunrise.format('LTS');
     sunset = sunset.format('LTS');
     
@@ -149,6 +153,9 @@ function bindingJSON(){
     document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
     document.getElementById('sunriseData').textContent = sunrise;
     document.getElementById('sunsetData').textContent = sunset;
+
+    var nodeTemperatura = document.getElementById('riepilogoMeteo');
+    nodeTemperatura.textContent = nodeTemperatura.textContent + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
 }
 
 
