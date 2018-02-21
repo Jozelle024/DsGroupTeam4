@@ -203,6 +203,7 @@ function initFunction(){
     restoreName();
     restoreLastDate();
     bindingJSON();
+    funzioneCallbackMaps();
 }
 
 
