@@ -3,6 +3,31 @@
 /* global extractWeather */
 
 
+//Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
+//alcuni elementi grafici e rendere responsive l'applicazione
+window.addEventListener('resize', function(){
+    'use strict';
+    if(window.innerWidth <= 880){
+        document.getElementById('social').style.display = 'none';
+    } else {
+        document.getElementById('social').style.display = 'inline';
+    }
+
+    var elementNavigation = ['homeLink', 'weatherLink', 'newsLink', 'contactLink'];
+    for(var i = 0; i < elementNavigation.length; i++){
+        if(window.innerWidth <= 430){
+            document.getElementById(elementNavigation[i]).style.fontSize = '16pt';
+        } else {
+            document.getElementById(elementNavigation[i]).style.fontSize = '30pt';
+        }
+    }
+});
+
+
+
+document.getElementsByTagName('body')[0].addEventListener('load',initFunction);
+
+
 //Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
 // effettua il reverse geocoding e mostra le informazioni nel paragrafo p
 function reverseGeocoding(){
@@ -182,20 +207,3 @@ function initFunction(){
 
 
 
-window.addEventListener('resize', function(){
-    'use strict';
-    if(window.innerWidth <= 880){
-        document.getElementById('social').style.display = 'none';
-    } else {
-        document.getElementById('social').style.display = 'inline';
-    }
-
-    var elementNavigation = ['homeLink', 'weatherLink', 'newsLink', 'contactLink'];
-    for(var i = 0; i < elementNavigation.length; i++){
-        if(window.innerWidth <= 430){
-            document.getElementById(elementNavigation[i]).style.fontSize = '16pt';
-        } else {
-            document.getElementById(elementNavigation[i]).style.fontSize = '30pt';
-        }
-    }
-});
