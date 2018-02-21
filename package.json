@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/sorrentmutie/DsGroupTeam4/issues"
   },
-  "homepage": "https://github.com/sorrentmutie/DsGroupTeam4#readme"
+  "homepage": "https://github.com/sorrentmutie/DsGroupTeam4#readme",
+  "dependencies": {
+    "moment": "^2.20.1"
+  }
 }
