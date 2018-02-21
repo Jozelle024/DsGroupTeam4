@@ -132,10 +132,24 @@ function restoreName(){
 
 
 
+//Questa funzione mi permette di fare il binding dei dati
+function bindingJSON(){
+    var meteo = extractWeather();
+    
+    document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + '\nAngolo: ' + meteo.wind.deg;
+    document.getElementById('cloudData').textContent = meteo.clouds.all;
+    document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
+    document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
+    document.getElementById('sunriseData').textContent = meteo.sys.sunrise;
+    document.getElementById('sunsetData').textContent = meteo.sys.sunset;
+}
+
+
 //Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
 function initFunction(){
     restoreName();
     restoreLastDate();
+    bindingJSON();
 }
 
 
