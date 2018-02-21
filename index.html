@@ -54,43 +54,43 @@
             <h1>Weather in Firenze, IT</h1>
             <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png"> 
             <div id="maininfo">
-            <p>6 °C  Sunny  15:28 Feb 19</p>
+            <p id = "riepilogoMeteo">Sunny </p>
             </div>
                 <table>
                         <tr>
                           <td>Wind</td>
-                          <td>LightBreeze</td>
+                          <td id="windData">LightBreeze</td>
                           
                         </tr>
                         <tr>
                           <td>Cloudness</td>
-                          <td>Scattered</td>
+                          <td id="cloudData">Scattered</td>
                           
                         </tr>
                         <tr>
                           <td>Pressure</td>
-                          <td>1023 hpa</td>
+                          <td id="pressureData">1023 hpa</td>
                           
                         </tr>
                         <tr>
                           <td>Humidity</td>
-                          <td>61%</td>
+                          <td id="humidityData">61%</td>
                           
                         </tr>
                         <tr>
                           <td>Sunrise</td>
-                          <td>08:29</td>
+                          <td id="sunriseData">08:29</td>
                           
                         </tr>
                         <tr>
                           <td>Sunset</td>
-                          <td>18:20</td>
+                          <td id="sunsetData">18:20</td>
                           
                         </tr>
 
                         <tr>
                                 <td>Geo coords</td>
-                                <td>[51,51, 0.1]</td>
+                                <td id="coordsData">[51,51, 0.1]</td>
                                 
                               </tr>
 
@@ -118,6 +118,9 @@
 
     </footer>
 
+    <script src="weatherJSON.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="node_modules/moment/locale/it.js"></script>
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA&callback=funzioneCallbackMaps"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

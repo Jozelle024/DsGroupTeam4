@@ -50,3 +50,8 @@ var Meteo = {
     name: 'London',
     cod: 200
 }
+
+
+function extractWeather(){
+    return Meteo;
+}

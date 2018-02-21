@@ -65,6 +65,8 @@ function funzionePosizioneTrovata(position){
             position: mapProperties.center,
             map: map
         });
+
+        document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];' 
     }
 }
 
@@ -132,10 +134,36 @@ function restoreName(){
 
 
 
+//Questa funzione mi permette di fare il binding dei dati
+function bindingJSON(){
+    var meteo = extractWeather();
+
+    var sunrise = moment(meteo.sys.sunrise * 1000);
+    var sunset = moment(meteo.sys.sunset * 1000);
+    var now = moment(Date.now());
+    sunrise.locale('it');
+    sunset.locale('it')
+    now.locale('it');
+    sunrise = sunrise.format('LTS');
+    sunset = sunset.format('LTS');
+    
+    document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + '\nAngolo: ' + meteo.wind.deg;
+    document.getElementById('cloudData').textContent = meteo.clouds.all;
+    document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
+    document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
+    document.getElementById('sunriseData').textContent = sunrise;
+    document.getElementById('sunsetData').textContent = sunset;
+
+    var nodeTemperatura = document.getElementById('riepilogoMeteo');
+    nodeTemperatura.textContent = nodeTemperatura.textContent + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
+}
+
+
 //Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
 function initFunction(){
     restoreName();
     restoreLastDate();
+    bindingJSON();
 }
 
 
