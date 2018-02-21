@@ -135,13 +135,20 @@ function restoreName(){
 //Questa funzione mi permette di fare il binding dei dati
 function bindingJSON(){
     var meteo = extractWeather();
+
+    var sunrise = moment(meteo.sys.sunrise * 1000);
+    var sunset = moment(meteo.sys.sunset * 1000);
+    sunrise.locale('it');
+    sunset.locale('it')
+    sunrise = sunrise.format('LTS');
+    sunset = sunset.format('LTS');
     
     document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + '\nAngolo: ' + meteo.wind.deg;
     document.getElementById('cloudData').textContent = meteo.clouds.all;
     document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
     document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
-    document.getElementById('sunriseData').textContent = meteo.sys.sunrise;
-    document.getElementById('sunsetData').textContent = meteo.sys.sunset;
+    document.getElementById('sunriseData').textContent = sunrise;
+    document.getElementById('sunsetData').textContent = sunset;
 }
 
 
