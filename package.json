@@ -1,0 +1,24 @@
+{
+  "name": "dsgroupteam4",
+  "version": "1.1.0",
+  "description": "Applicazione web per il rilevamento meteo",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sorrentmutie/DsGroupTeam4.git"
+  },
+  "keywords": [
+    "meteo",
+    "weather",
+    "team4"
+  ],
+  "author": "Alessandro Corrado Niccolo Tondi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sorrentmutie/DsGroupTeam4/issues"
+  },
+  "homepage": "https://github.com/sorrentmutie/DsGroupTeam4#readme"
+}
