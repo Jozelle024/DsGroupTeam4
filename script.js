@@ -30,6 +30,9 @@ function responsive(){
 }
 
 
+
+
+
 //Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
 // effettua il reverse geocoding e mostra le informazioni nel paragrafo p
 function reverseGeocoding(){
@@ -83,8 +86,8 @@ function drawMaps(){
 function funzionePosizioneTrovata(position){
     'use strict';
     if(position && position.coords){
-        var latitudine = position.coords.latitude;
-        var longitudine = position.coords.longitude;
+        var latitudine = parseFloat(position.coords.latitude).toFixed(2);
+        var longitudine = parseFloat(position.coords.longitude).toFixed(2);
 
         //Vado a salvare queste informazioni per poi il recupero futuro
         localStorage.latitudine = latitudine;
