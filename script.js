@@ -192,7 +192,7 @@ function bindingJSON(latitudine, longitudine){
         sunrise = sunrise.format('LTS');
         sunset = sunset.format('LTS');
         
-        document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + 'km/h';
+        document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + 'm/s';
         document.getElementById('cloudData').textContent = meteo.clouds.all;
         document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
         document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
@@ -201,7 +201,7 @@ function bindingJSON(latitudine, longitudine){
         document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];';
         document.getElementById('weatherImage').src = 'http://openweathermap.org/img/w/10d.png';
     
-        document.getElementById('riepilogoMeteo').textContent = meteo.weather[0].description + ' ' + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
+        document.getElementById('riepilogoMeteo').textContent = meteo.weather[0].description.replace(/\b\w/g, l => l.toUpperCase()) + ' ' + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
     });
 }
 
