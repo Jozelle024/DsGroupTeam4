@@ -72,7 +72,7 @@ function reverseGeocoding(){
 
 
 //Disegna la mappa
-function drawMaps(){
+function actualPosition(){
     'use strict';
     if('geolocation' in navigator){
         navigator.geolocation.getCurrentPosition(funzionePosizioneTrovata, funzioneErrorePosizione);
@@ -104,7 +104,8 @@ function funzionePosizioneTrovata(position){
             map: map
         });
 
-        document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];';
+        //Richiamo il bindingJSON per richiedere le informazioni che mi servono
+        bindingJSON(latitudine,longitudine);
     }
 }
 
@@ -120,7 +121,7 @@ function funzioneErrorePosizione(){
 //Questa funzione è una funzione wrapper 
 function funzioneCallbackMaps(){
     'use strict';
-    drawMaps();
+    actualPosition();
     reverseGeocoding();
 }
 
@@ -177,28 +178,31 @@ function restoreName(){
 
 
 //Questa funzione mi permette di fare il binding dei dati
-function bindingJSON(){
+function bindingJSON(latitudine, longitudine){
     'use strict';
-    var meteo = extractWeather();
-
-    var sunrise = moment(meteo.sys.sunrise * 1000);
-    var sunset = moment(meteo.sys.sunset * 1000);
-    var now = moment(Date.now());
-    sunrise.locale('it');
-    sunset.locale('it');
-    now.locale('it');
-    sunrise = sunrise.format('LTS');
-    sunset = sunset.format('LTS');
+    var urlOpenWeather = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitudine +'&lon=' + longitudine + '&APPID=ee6b293d773f4fcd7e434f79bbc341f2&lang=it';
+    $.getJSON(urlOpenWeather,function(meteo){
+        console.log(meteo);
+        var sunrise = moment(meteo.sys.sunrise * 1000);
+        var sunset = moment(meteo.sys.sunset * 1000);
+        var now = moment(Date.now());
+        sunrise.locale('it');
+        sunset.locale('it');
+        now.locale('it');
+        sunrise = sunrise.format('LTS');
+        sunset = sunset.format('LTS');
+        
+        document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + 'km/h';
+        document.getElementById('cloudData').textContent = meteo.clouds.all;
+        document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
+        document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
+        document.getElementById('sunriseData').textContent = sunrise;
+        document.getElementById('sunsetData').textContent = sunset;
+        document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];';
+        document.getElementById('weatherImage').src = 'http://openweathermap.org/img/w/10d.png';
     
-    document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + '\nAngolo: ' + meteo.wind.deg;
-    document.getElementById('cloudData').textContent = meteo.clouds.all;
-    document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
-    document.getElementById('humidityData').textContent = meteo.main.humidity + '%';
-    document.getElementById('sunriseData').textContent = sunrise;
-    document.getElementById('sunsetData').textContent = sunset;
-
-    var nodeTemperatura = document.getElementById('riepilogoMeteo');
-    nodeTemperatura.textContent = nodeTemperatura.textContent + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
+        document.getElementById('riepilogoMeteo').textContent = meteo.weather[0].description + ' ' + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
+    });
 }
 
 
