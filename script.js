@@ -1,11 +1,17 @@
 /* global google */
 /* global moment */
 /* global extractWeather */
+/* exported initFunction */
 
 
 //Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
 //alcuni elementi grafici e rendere responsive l'applicazione
-window.addEventListener('resize', function(){
+window.addEventListener('resize', responsive());
+
+
+
+//Funzione che regola il resizing della finestra: andrà aggiunto poi al listner del resizing
+function responsive(){
     'use strict';
     if(window.innerWidth <= 880){
         document.getElementById('social').style.display = 'none';
@@ -21,11 +27,10 @@ window.addEventListener('resize', function(){
             document.getElementById(elementNavigation[i]).style.fontSize = '30pt';
         }
     }
-});
+}
 
 
 
-document.getElementsByTagName('body')[0].addEventListener('load',initFunction);
 
 
 //Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
@@ -81,8 +86,8 @@ function drawMaps(){
 function funzionePosizioneTrovata(position){
     'use strict';
     if(position && position.coords){
-        var latitudine = position.coords.latitude;
-        var longitudine = position.coords.longitude;
+        var latitudine = parseFloat(position.coords.latitude).toFixed(2);
+        var longitudine = parseFloat(position.coords.longitude).toFixed(2);
 
         //Vado a salvare queste informazioni per poi il recupero futuro
         localStorage.latitudine = latitudine;
