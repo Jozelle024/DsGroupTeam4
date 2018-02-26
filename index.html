@@ -51,46 +51,46 @@
 
     <main>
         <section class="meteostats">
-            <h1>Weather in Firenze, IT</h1>
-            <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png"> 
+            <h1 id="actualLocation"></h1>
+            <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage"> 
             <div id="maininfo">
             <p id = "riepilogoMeteo">Sunny </p>
             </div>
                 <table>
                         <tr>
-                          <td>Wind</td>
+                          <td>Vento</td>
                           <td id="windData">LightBreeze</td>
                           
                         </tr>
                         <tr>
-                          <td>Cloudness</td>
+                          <td>Nuvolosità</td>
                           <td id="cloudData">Scattered</td>
                           
                         </tr>
                         <tr>
-                          <td>Pressure</td>
-                          <td id="pressureData">1023 hpa</td>
+                          <td>Pressione</td>
+                          <td id="pressureData"></td>
                           
                         </tr>
                         <tr>
-                          <td>Humidity</td>
-                          <td id="humidityData">61%</td>
+                          <td>Umidità</td>
+                          <td id="humidityData"></td>
                           
                         </tr>
                         <tr>
-                          <td>Sunrise</td>
-                          <td id="sunriseData">08:29</td>
+                          <td>Alba</td>
+                          <td id="sunriseData"></td>
                           
                         </tr>
                         <tr>
-                          <td>Sunset</td>
-                          <td id="sunsetData">18:20</td>
+                          <td>Tramonto</td>
+                          <td id="sunsetData"></td>
                           
                         </tr>
 
                         <tr>
-                                <td>Geo coords</td>
-                                <td id="coordsData">[51,51, 0.1]</td>
+                                <td>Coordinate Geografiche</td>
+                                <td id="coordsData"></td>
                                 
                               </tr>
 
@@ -121,6 +121,7 @@
     <script src="weatherJSON.js"></script>
     <script src="node_modules/moment/min/moment.min.js"></script>
     <script src="node_modules/moment/locale/it.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
