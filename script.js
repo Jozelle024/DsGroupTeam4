@@ -168,7 +168,7 @@ function restoreLastDate(){
 function restoreName(){
     'use strict';
     if(localStorage && localStorage.name){
-        document.getElementById('name').textContent = 'Bentornato, ' + localStorage.name;   
+        document.getElementById('name').textContent = 'Bentornato, ' + localStorage.name.replace(/\b\w/g, l => l.toUpperCase());   
     } else{
         localStorage.name = 'Giovanni';
         document.getElementById('name').textContent = 'Benvenuto, Giovanni';
@@ -211,7 +211,6 @@ function initFunction(){
     'use strict';
     restoreName();
     restoreLastDate();
-    bindingJSON();
     funzioneCallbackMaps();
 }
 
