@@ -68,7 +68,7 @@ function bindingJSON(latitudine, longitudine){
         document.getElementById('sunriseData').textContent = sunrise;
         document.getElementById('sunsetData').textContent = sunset;
         document.getElementById('coordsData').textContent = '[lat: ' + latitudine + '\tlng: ' + longitudine + '];';
-        document.getElementById('weatherImage').src = 'http://openweathermap.org/img/w/10d.png';
+        document.getElementById('weatherImage').src = 'http://openweathermap.org/img/w/' + meteo.weather[0].icon + '.png';
     
         document.getElementById('riepilogoMeteo').textContent = meteo.weather[0].description.replace(/\b\w/g, l => l.toUpperCase()) + ' ' + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
     });
