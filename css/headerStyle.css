@@ -1,0 +1,10 @@
+header div {
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
+  width: 400px; }
+  header div img {
+    width: 25%;
+    height: 25%; }
+  header div h1 {
+    font-size: 60pt; }
