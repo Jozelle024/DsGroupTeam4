@@ -4,11 +4,12 @@
 
 body {
     background-color: #00a6cc;
+    color: white;
 }
 
 .jumbotron {
     background-color: #00a6cc;
-    color: #88e3ff;
+    color: white;
     margin-bottom: 0px;
 }
 
@@ -33,10 +34,4 @@ body {
     margin-bottom: 10px;
 }
 
-#weatherImage {
-    width: 100px;
-}
 
-.card {
-    background-color: whitesmoke;
-}
