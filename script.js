@@ -235,3 +235,41 @@ function initFunction(){
 
 
 
+
+/**
+ * 
+ * 
+ * $(document).ready(function() {
+    'use strict';
+        initializePage();
+    });
+ * 
+ * 
+ * 
+ * function initializePage() {
+    'use strict';
+    var date = moment();
+    var userInfo = {};
+
+    if (localStorage && localStorage.getItem('name')) {
+        userInfo.name = localStorage.getItem('name');
+        userInfo.lastAccess = localStorage.getItem('lastAccess');
+        localStorage.setItem('lastAccess', date.format('LLLL'));
+    } else {
+        userInfo.name = 'Mario Rossi';
+        localStorage.setItem('name', userInfo.name);
+        userInfo.lastAccess = localStorage.lastAccess || 'Mai';
+        localStorage.setItem('lastAccess' , date.format('LLLL'));
+    }
+
+    document.getElementById('nome-utente').innerText = userInfo.name;
+    document.getElementById('ultimo-accesso').innerText = userInfo.lastAccess;
+    miaFunzioneCallback();
+}
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
