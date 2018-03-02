@@ -15,13 +15,15 @@
     <div class="container-fluid">
         <header>
             <nav class="navbar navbar-toggleable-md navbar-inverse bg-nav">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <span class="navbar-brand">
+                    <img src="../images/dsgroup_logo_small.png">
+                </span>
 
-                <div class="collapse navbar-collapse" id="navbarColor02">
+                <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#indexBootstrap.html">Previsioni</a>
@@ -30,86 +32,81 @@
                             <a class="nav-link" href="#modal-about">Chi siamo</a>
                         </li>
                     </ul>
+
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
-
-            <div class="jumbotron">
+            <div class="jumbotron padding-custom">
                 <h1 class="display-3">Benvenuto,
                     <span id="nome-utente">nome utente</span>!</h1>
-                <p class="lead">Ultimo accesso:
-                    <span id="ultimo-accesso">2 marzo alle 11:12</span>
-                </p>
-                <hr class="my-4">
+                <h6>
+                    <p>
+                        Ultimo accesso:
+                        <span id="ultimo-accesso">2 marzo alle 11:12</span>
+                    </p>
+                    <p>
+                        La tua ultima posizione è stata:
+                        <span id="ultima-posizione">Via Val di non, 2</span>
+                    </p>
+                </h6>
             </div>
-
-
-            <div id="map"></div>
         </header>
-
-        <main>
-            <div class="container">
+        <main class="padding-custom">
+            <div id="mappa"></div>
+            <div class="container-fluid">
                 <div class="row justify-content-md-center">
-                    <section class="meteostats">
-                        <h1 id="actualLocation"></h1>
-                        <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">
-                        <div id="maininfo">
-                            <p id="riepilogoMeteo">Sunny </p>
-                        </div>
-                        <table>
+                    <h1 class="padding-custom">Previsioni metereologiche per
+                        <span id="actualLocation"></span>
+                    </h1>
+                    <div>
+                        <!--<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">-->
+                    </div>
+                    <table class="table table-hover">
+                        <tbody>
                             <tr>
-                                <td>Vento</td>
-                                <td id="windData">LightBreeze</td>
+                                <th>Vento</th>
+                                <td></td>
+                            </tr>
+
+
+                            <tr>
+                                <th>Nuvolosità</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Pressione</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Umidità</th>
+                                <td></td>
 
                             </tr>
                             <tr>
-                                <td>Nuvolosità</td>
-                                <td id="cloudData">Scattered</td>
+                                <th>Alba</th>
+                                <td></td>
 
                             </tr>
                             <tr>
-                                <td>Pressione</td>
-                                <td id="pressureData"></td>
+                                <th>Tramonto</th>
+                                <td></td>
 
                             </tr>
-                            <tr>
-                                <td>Umidità</td>
-                                <td id="humidityData"></td>
-
-                            </tr>
-                            <tr>
-                                <td>Alba</td>
-                                <td id="sunriseData"></td>
-
-                            </tr>
-                            <tr>
-                                <td>Tramonto</td>
-                                <td id="sunsetData"></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>Coordinate Geografiche</td>
-                                <td id="coordsData"></td>
-
-                            </tr>
-
-                        </table>
-
-                    </section>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
-
-
         <footer>
             <div class="container-fluid bg-footer text-center">
-                <div class="row justify-content-center pt-1"><h2>DSGROUPTEAM4</h2></div>
+                <div class="row justify-content-center pt-1">
+                    <h2>DSGROUPTEAM4</h2>
+                </div>
                 <div class="row py-1 text-center d-flex justify-content-center">
-                    
+
                     <div class="col-md-3 mb-1">
                         <h6 class="title font-weight-bold">
                             <a href="#!">Home</a>
@@ -132,22 +129,36 @@
                     </div>
                 </div>
                 <hr class="separator">
-                    <ul id="socialMedia" class="d-flex justify-content-center py-2">
-                        <li><a href="#"><i class="fab fa-facebook-f mx-3 fa-2x"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram mx-3 fa-2x"></i></a></li>
-                        <li><a href="#"><i class="fab fa-google-plus-g mx-3 fa-2x"></i></a ></li>
-                        <li><a href="#"><i class="fab fa-twitter mx-3 fa-2x"></i></a></li>
-                    </ul>
+                <ul id="socialMedia" class="d-flex justify-content-center py-2">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-f mx-3 fa-2x"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram mx-3 fa-2x"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus-g mx-3 fa-2x"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter mx-3 fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
                 <hr class="separator">
                 <div class="row py-1">
-                        Copyright © 1999-2018 RTI S.p.A. Interactive Media - P.Iva 03976881007 - Tutti i diritti riservati l Per la pubblicità Mediamond
-                        S.p.a. RTI spa, Gruppo Mediaset / Sede legale l - 00187 Roma Largo del Nazareno 8 / Cap. Soc. € 500.000.007,00
-                        int. vers. / Registro delle Imprese di Roma, C.F.06921720154
-                    </div>
+                    Copyright © 1999-2018 RTI S.p.A. Interactive Media - P.Iva 03976881007 - Tutti i diritti riservati l Per la pubblicità Mediamond
+                    S.p.a. RTI spa, Gruppo Mediaset / Sede legale l - 00187 Roma Largo del Nazareno 8 / Cap. Soc. € 500.000.007,00
+                    int. vers. / Registro delle Imprese di Roma, C.F.06921720154
+                </div>
             </div>
         </footer>
-
-
     </div>
     <script src="../../node_modules/moment/min/moment.min.js"></script>
     <script src="../../node_modules/moment/locale/it.js"></script>

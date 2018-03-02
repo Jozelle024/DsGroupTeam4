@@ -1,13 +1,27 @@
 .bg-nav {
-    background-color:  #00a6cc;
-    box-shadow: 0px 4px 8px grey;
+    background-color:  #00779b;
+}
+
+body {
+    background-color: #00a6cc;
+    color: white;
 }
 
 .jumbotron {
-    background-color: #fff;
+    background-color: #00a6cc;
+    color: white;
+    margin-bottom: 0px;
 }
 
-#map {
+.container-fluid {
+    padding: 0px;
+}
+
+.padding-custom {
+    padding: 32px;
+}
+
+#mappa {
     height: 300px;
 }
 
@@ -23,3 +37,13 @@
     padding-left: 0;
     margin-bottom: 0;
 }
+.container-fluid hr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.jumbotron h5 span:first-child {
+    margin-bottom: 10px;
+}
+
+
