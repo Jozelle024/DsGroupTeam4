@@ -3,13 +3,154 @@
 /* global extractWeather */
 /* exported initFunction */
 
-
+//global variable
+var map, infoWindow;
+var pos = {
+    lat: 43.325231,
+    lng: 23.412342
+};
+//function onload
+$(document).ready(function() {
+    var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2";
+    $.getJSON(url, function(dataw) {
+        $(document).delay(2000);
+        addTable (dataw);
+        functionGo ();
+    });
+    /*var url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2&";
+    $.getJSON(url, function(dataf) {
+        $(document).delay(2000);
+        addTableForecast (dataf);
+    });*/
+    $.getJSON("https://randomuser.me/api/?results=1", function(datap) {
+        addName (datap);
+    });
+    setTimeout( function() {
+        url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyD-fxKwF1sWWcV49zr9q0cT97l6fIqZj-E";
+        $.getJSON(url, function(datal) {
+            addLocation (datal);
+        });
+    }, 10000);
+});
+//function callback
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: pos.lat,
+            lng: pos.lng
+        },
+        zoom: 15
+    });
+    infoWindow = new google.maps.InfoWindow;
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            pos.lat = position.coords.latitude;
+            pos.lng = position.coords.longitude;
+            var marker = new google.maps.Marker({
+                position: pos,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                icon: "../IMG/location.png"
+            });
+            map.setCenter(pos);
+            setTimeout( function() {
+                $("#loader").css("display", "none");
+            }, 5000);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+//Questa funzione mi permette di gestire il caso in cui c'è un errore sulla posizione della Geolocalizzazione
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ? window.location.replace("../HTML/error.html") : 'Errore: Il tuo Browser non sopporta Geolocalizzazione');
+    infoWindow.open(map);
+}
+//function add text
+function addTable (app) {
+    var sunrise = moment(app.sys.sunrise*1000).locale('it');
+    var sunset = moment(app.sys.sunset*1000).locale('it');
+    console.log (sunrise);
+    /*$("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
+    $("#description").text(app.weather[0].description);
+    $("#pressure").text(app.main.pressure + " hpa");
+    $("#humidity").text(app.main.humidity + "%");
+    $("#iconimg").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
+    $("#sunset").text(sunset);
+    $("#sunrise").text(sunrise);
+    $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");*/
+} 
+function addName (app) {
+    if (app.results[0].gender=="male") {
+        $("#nome-utente").text("Benvenuto, " + app.results[0].name.first + " " + app.results[0].name.last);
+    } else {
+        $("#nome-utente").text("Benvenuto, " + app.results[0].name.first + " " + app.results[0].name.last);
+    }
+    $("#data").text((app.results[0].registered));
+}
+function windDirection (deg) {
+    var north = "North";
+    var est = "Est";
+    var south = "South";
+    var west = "West";
+    if (deg>348.75 && deg<11.25) {
+        return north+"("+deg+")";
+    }
+    if (deg>11.25 && deg<33.75) {
+        return north+"-"+north+"-"+est+"("+deg+")";
+    }
+    if (deg>33.75 && deg<56.25) {
+        return north+"-"+est+"("+deg+")";
+    }
+    if (deg>56.25 && deg<78.75) {
+        return est+"-"+north+"-"+est+"("+deg+")";
+    }
+    if (deg>78.75 && deg<101.25) {
+        return est+"("+deg+")";
+    }
+    if (deg>101.25 && deg<123.75) {
+        return est+"-"+south+"-"+est+"("+deg+")";
+    }
+    if (deg>123.75 && deg<146.25) {
+        return south+"-"+est+"("+deg+")";
+    }
+    if (deg>146.25 && deg<168.75) {
+        return south+"-"+south+"-"+est+"("+deg+")";
+    }
+    if (deg>168.75 && deg<191.25) {
+        return south+"("+deg+")";
+    }
+    if (deg>191.25 && deg<213.75) {
+        return south+"-"+south+"-"+west+"("+deg+")";
+    }
+    if (deg>213.75 && deg<236.25) {
+        return south+"-"+west+"("+deg+")";
+    }
+    if (deg>236.25 && deg<258.75) {
+        return west+"-"+south+"-"+west+"("+deg+")";
+    }
+    if (deg>258.75 && deg<281.25) {
+        return west+"("+deg+")";
+    }
+    if (deg>281.25 && deg<303.75) {
+        return west+"-"+north+"-"+west+"("+deg+")";
+    }
+    if (deg>303.75 && deg<326.25) {
+        return north+"-"+west+"("+deg+")";
+    }
+    if (deg>326.25 && deg<348.75) {
+        return north+"-"+north+"-"+west+"("+deg+")";
+    }
+}
 //Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
 //alcuni elementi grafici e rendere responsive l'applicazione
-window.addEventListener('resize', responsive());
-
-
-
+window.addEventListener('resize', responsive())
 //Funzione che regola il resizing della finestra: andrà aggiunto poi al listner del resizing
 function responsive(){
     'use strict';
@@ -28,11 +169,6 @@ function responsive(){
         }
     }
 }
-
-
-
-
-
 //Determina la posizione attuale tramite le API di geolocalizzazione di HTML5
 function actualPosition(){
     'use strict';
@@ -42,9 +178,6 @@ function actualPosition(){
         window.alert('Geolocalizzazione non disponibile');
     }
 }
-
-
-
 //Questa funzione mi permette di fare il binding dei dati: questa funzione la utilizzo all'interno della sottofunzione posizione 
 //trovata in cui vado a fare il binding delle informazioni ricavate da openweather
 function bindingJSON(latitudine, longitudine){
@@ -60,7 +193,6 @@ function bindingJSON(latitudine, longitudine){
         now.locale('it');
         sunrise = sunrise.format('LTS');
         sunset = sunset.format('LTS');
-        
         document.getElementById('windData').textContent = 'Velocità: ' + meteo.wind.speed + 'm/s';
         document.getElementById('cloudData').textContent = meteo.clouds.all;
         document.getElementById('pressureData').textContent = meteo.main.pressure + 'hpa';
@@ -73,9 +205,6 @@ function bindingJSON(latitudine, longitudine){
         document.getElementById('riepilogoMeteo').textContent = meteo.weather[0].description.replace(/\b\w/g, l => l.toUpperCase()) + ' ' + parseInt(meteo.main.temp - 273.15) + ' °C ' + now.format('LT') + ' ' + now.format('ll'); 
     });
 }
-
-
-
 //Questa funzione viene richiamata se è stata trovata la posizione attuale: tramite la posizione attuale passata 
 //come parametro attuale vado a crearmi la mappa da GoogleMaps e tramite il reverse Geocoding vado a ricavarmi la città
 //attuale.
@@ -101,7 +230,6 @@ function funzionePosizioneTrovata(position){
             position: mapProperties.center,
             map: map
         });
-
         //Ricavo la posizione
         geocoder.geocode({'location': mapProperties.center}, function(results, status){
             if(status === 'OK'){
@@ -121,18 +249,6 @@ function funzionePosizioneTrovata(position){
         bindingJSON(latitudine,longitudine);
     }
 }
-
-
-
-//Questa funzione mi permette di gestire il caso in cui c'è un errore sulla posizione della Geolocalizzazione
-function funzioneErrorePosizione(){
-    'use strict';
-    window.alert('ATTENZIONE:\nNon posso rilevare le informazioni meteorologiche se non consenti l\'accesso al servizio di Geolocalizzazione!');
-    document.getElementById('actualLocation').textContent = 'Posizione attuale non rilevata';
-}
-
-
-
 //Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
 // effettua il reverse geocoding e mostra le informazioni nel paragrafo p
 function previusPosition(){
@@ -167,19 +283,12 @@ function previusPosition(){
         }
     });
 }
-
-
 //Questa funzione è una funzione wrapper 
 function funzioneCallbackMaps(){
     'use strict';
     actualPosition();
     previusPosition();
 }
-
-
-
-
-
 //Questa funzione mi permette di andare a recuperare l'ultima data a cui ho fatto accesso
 function restoreLastDate(){
     'use strict';
@@ -187,7 +296,6 @@ function restoreLastDate(){
     var lastMonth;
     var lastYear;
     var data = new Date();
-
     if(localStorage && localStorage.lastDay && localStorage.lastMonth && localStorage.lastYear){
         //Recupero le informazioni dalla memoria locale se sono presenti
         lastDay = localStorage.lastDay;
@@ -199,19 +307,14 @@ function restoreLastDate(){
         lastMonth = data.getMonth();
         lastYear = data.getFullYear();
     }
-
     //Memorizzo data ed ora attuali nella memoria locale per un futuro riutilizzo
     localStorage.setItem('lastDay', data.getDate());
     localStorage.setItem('lastMonth', data.getMonth());
     localStorage.setItem('lastYear', data.getFullYear());
-
     //Mostro l'ultimo accesso a video
     lastMonth++;
     document.getElementById('data').textContent = 'Data ultimo accesso: ' + lastDay + '.' + lastMonth + '.' + lastYear;       
 }
-
-
-
 //Questa funzione mi permette di andare a recuperare il nome della persona se esiste
 function restoreName(){
     'use strict';
@@ -222,9 +325,6 @@ function restoreName(){
         document.getElementById('name').textContent = 'Benvenuto, Giovanni';
     }
 }
-
-
-
 //Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
 function initFunction(){
     'use strict';
@@ -232,25 +332,15 @@ function initFunction(){
     restoreLastDate();
     funzioneCallbackMaps();
 }
-
-
-
-
-/**
- * 
- * 
- * $(document).ready(function() {
+/*
+$(document).ready(function() {
     'use strict';
-        initializePage();
-    });
- * 
- * 
- * 
- * function initializePage() {
+    initializePage();
+});
+function initializePage() {
     'use strict';
     var date = moment();
     var userInfo = {};
-
     if (localStorage && localStorage.getItem('name')) {
         userInfo.name = localStorage.getItem('name');
         userInfo.lastAccess = localStorage.getItem('lastAccess');
@@ -261,15 +351,9 @@ function initFunction(){
         userInfo.lastAccess = localStorage.lastAccess || 'Mai';
         localStorage.setItem('lastAccess' , date.format('LLLL'));
     }
-
     document.getElementById('nome-utente').innerText = userInfo.name;
     document.getElementById('ultimo-accesso').innerText = userInfo.lastAccess;
     miaFunzioneCallback();
 }
- * 
- * 
- * 
- * 
- * 
  */
 
