@@ -12,13 +12,16 @@ var pos = {
 //function onload
 $(document).ready(function() {
     'use strict';
-    var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2";
-    $.getJSON(url, function(dataw) {
-        $(document).delay(2000);
-        addTable (dataw);
-        //functionGo ();
-    });
-    /*var url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2&";
+    setTimeout( function() {
+        var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2";
+        $.getJSON(url, function(dataw) {
+            $(document).delay(2000);
+            addTable (dataw);
+            //functionGo ();
+            console.log (pos);
+        });
+    }, 10000);
+    /*var url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2";
     $.getJSON(url, function(dataf) {
         $(document).delay(2000);
         addTableForecast (dataf);
@@ -44,7 +47,6 @@ function initMap() {
         zoom: 1
     });
     infoWindow = new google.maps.InfoWindow;
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             pos.lat = position.coords.latitude;
@@ -57,9 +59,9 @@ function initMap() {
             });
             map.setCenter(pos);
             map.setZoom(15);
-            /*setTimeout( function() {
+            setTimeout( function() {
                 $("#loader").css("display", "none");
-            }, 5000);*/
+            }, 5000);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -78,15 +80,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //function add text
 function addTable (app) {
     'use strict';
-    var sunrise = moment(app.sys.sunrise*1000);
-    sunrise.locale('it');
-    var sunset = moment(app.sys.sunset*1000);
-    sunset.locale('it');
-    $("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
+    $("#wind").text(app.wind.speed + " m/s " + windDirection(app.wind.deg));
     $("#description").text(app.weather[0].description);
     $("#pressure").text(app.main.pressure + " hpa");
     $("#humidity").text(app.main.humidity + "%");
-    //$("#iconimg").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
+    $("#weatherImage").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
     $("#sunset").text((new Date(app.sys.sunset*1000)).toLocaleTimeString());
     $("#sunrise").text((new Date(app.sys.sunrise*1000)).toLocaleTimeString());
     $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");
@@ -120,13 +118,11 @@ function createStorage (app) {
             } else {
                 vet.push(data);
                 localStorage.setItem('sessione', JSON.stringify(vet));
-                console.log ("new indice");
                 return data;
             }
         } else {
             vet.push(data);
             localStorage.setItem('sessione', JSON.stringify(vet));
-            console.log ("primo");
             return data;
         }
     } else {
@@ -143,10 +139,10 @@ function controlName (vet, data) {
 }
 function windDirection (deg) {
     'use strict';
-    var north = "North";
+    var north = "Nord";
     var est = "Est";
-    var south = "South";
-    var west = "West";
+    var south = "Sud";
+    var west = "Ovest";
     if (deg>348.75 && deg<11.25) {
         return north+"("+deg+")";
     }
@@ -198,31 +194,6 @@ function windDirection (deg) {
 }
 function addLocation (app) {
     'use strict';
-    $("#city").text(app.results[0].address_components[2].long_name);
-    $("#country").text(app.results[0].address_components[6].long_name);
+    $("#actualLocation").text(app.results[0].address_components[2].long_name + " " + app.results[0].address_components[6].long_name);
 }
-/*
-$(document).ready(function() {
-    'use strict';
-    initializePage();
-});
-function initializePage() {
-    'use strict';
-    var date = moment();
-    var userInfo = {};
-    if (localStorage && localStorage.getItem('name')) {
-        userInfo.name = localStorage.getItem('name');
-        userInfo.lastAccess = localStorage.getItem('lastAccess');
-        localStorage.setItem('lastAccess', date.format('LLLL'));
-    } else {
-        userInfo.name = 'Mario Rossi';
-        localStorage.setItem('name', userInfo.name);
-        userInfo.lastAccess = localStorage.lastAccess || 'Mai';
-        localStorage.setItem('lastAccess' , date.format('LLLL'));
-    }
-    document.getElementById('nome-utente').innerText = userInfo.name;
-    document.getElementById('ultimo-accesso').innerText = userInfo.lastAccess;
-    miaFunzioneCallback();
-}
- */
 
