@@ -28,7 +28,7 @@
                             <a class="nav-link" href="#indexBootstrap.html">Previsioni</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#modal-about">Chi siamo</a>
+                            <a class="nav-link" href="#modal-about" data-toggle="#mo">Chi siamo</a>
                         </li>
                     </ul>
 
@@ -85,6 +85,50 @@
                             </tbody>
                             </table>
                     
+                </div>
+            </div>
+            <div id="modale" class="modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Contattaci</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="subcontainer">
+                                <div id="textcontainer">
+                                    <h1>Contattaci</h1>
+                                    <p>Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente dire ciao! contattaci siamo qui per voi </p>
+                                </div>
+                                <form action="" method="post">
+                                    <div class="minicontainer" id="linefirst">
+                                        <p><input type="text" name="name" placeholder="Name"></p>
+                                        <p><input type="text" name="surname" placeholder="Surname"></p>
+                                    </div>
+                                    <div class="minicontainer" id="linesecond">
+                                        <p><input type="email" name="mail" placeholder="E-Mail"></p>
+                                        <p><input type="text" name="telephone" placeholder="Telephone"></p>
+                                    </div>
+                                    <div class="minicontainer" id="linethird">
+                                        <p><textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea></p>
+                                    </div>
+                                    <div class="minicontainer" id="linefourth">
+                                        <p><input type="checkbox" name="privacy" id="privacy"><label>I have read the <a href="privacy.html">privacy notice</a> and agree to have my personal details processed for purposes of the above mentioned request.</label></p>
+                                    </div>
+                                    <div class="minicontainer" id="lineffifth">
+                                        <input type="submit" value="Submit" class="button">
+                                        <input type="reset" value="Reset" class="button">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="avviaContatore" type="button" class="btn btn-primary">OK</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
