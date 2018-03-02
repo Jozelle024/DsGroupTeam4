@@ -15,7 +15,7 @@ $(document).ready(function() {
     $.getJSON(url, function(dataw) {
         $(document).delay(2000);
         addTable (dataw);
-        functionGo ();
+        //functionGo ();
     });
     /*var url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2&";
     $.getJSON(url, function(dataf) {
@@ -74,9 +74,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 //function add text
 function addTable (app) {
-    var sunrise = moment(app.sys.sunrise*1000).locale('it');
-    var sunset = moment(app.sys.sunset*1000).locale('it');
+    var sunrise = moment(app.sys.sunrise*1000);
+    sunrise.locale('it');
     console.log (sunrise);
+    var sunset = moment(app.sys.sunset*1000).locale('it');
     /*$("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
     $("#description").text(app.weather[0].description);
     $("#pressure").text(app.main.pressure + " hpa");
@@ -90,9 +91,9 @@ function addName (app) {
     if (app.results[0].gender=="male") {
         $("#nome-utente").text("Benvenuto, " + app.results[0].name.first + " " + app.results[0].name.last);
     } else {
-        $("#nome-utente").text("Benvenuto, " + app.results[0].name.first + " " + app.results[0].name.last);
+        $("#nome-utente").text("Benvenuta, " + app.results[0].name.first + " " + app.results[0].name.last);
     }
-    $("#data").text((app.results[0].registered));
+    $("#ultimo-accesso").text(("Ultimo accesso: " + app.results[0].registered));
 }
 function windDirection (deg) {
     var north = "North";
@@ -150,7 +151,7 @@ function windDirection (deg) {
 }
 //Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
 //alcuni elementi grafici e rendere responsive l'applicazione
-window.addEventListener('resize', responsive())
+//window.addEventListener('resize', responsive())
 //Funzione che regola il resizing della finestra: andrà aggiunto poi al listner del resizing
 function responsive(){
     'use strict';
