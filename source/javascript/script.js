@@ -6,8 +6,8 @@
 //global variable
 var map, infoWindow;
 var pos = {
-    lat: 43.325231,
-    lng: 23.412342
+    lat: 0,
+    lng: 0
 };
 //function onload
 $(document).ready(function() {
@@ -41,7 +41,7 @@ function initMap() {
             lat: pos.lat,
             lng: pos.lng
         },
-        zoom: 15
+        zoom: 1
     });
     infoWindow = new google.maps.InfoWindow;
     // Try HTML5 geolocation.
@@ -56,6 +56,7 @@ function initMap() {
                 icon: "../images/location.png"
             });
             map.setCenter(pos);
+            map.setZoom(15);
             /*setTimeout( function() {
                 $("#loader").css("display", "none");
             }, 5000);*/
