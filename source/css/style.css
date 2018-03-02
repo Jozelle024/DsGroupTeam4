@@ -7,6 +7,15 @@
     background-color: #fff;
 }
 
-#map {
+#mappa {
     height: 300px;
+}
+div.container-fluid main.padding-custom div#modale div.modal-dialog {
+    max-width: 90%;
+}
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div.row p.col-md input, div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div.row p.col-md textarea, div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row label {
+    width: 100%;
+}
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row input.col-md {
+    max-width: 5%;
 }

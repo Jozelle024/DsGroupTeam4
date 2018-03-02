@@ -36,7 +36,7 @@ $(document).ready(function() {
 //function callback
 function initMap() {
     'use strict';
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('mappa'), {
         center: {
             lat: pos.lat,
             lng: pos.lng

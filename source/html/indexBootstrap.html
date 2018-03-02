@@ -28,7 +28,7 @@
                             <a class="nav-link" href="#indexBootstrap.html">Previsioni</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#modal-about" data-toggle="#mo">Chi siamo</a>
+                            <a class="nav-link" href="#modal-about" data-toggle="modal" data-target="#modale">Contattaci</a>
                         </li>
                     </ul>
 
@@ -39,15 +39,10 @@
                 </div>
             </nav>
             <div class="jumbotron padding-custom">
-                <h1 class="display-3">Benvenuto,
-                    <span id="nome-utente">nome utente</span>!</h1>
+                <h1 class="display-3"><span id="nome-utente"></span></h1>
                 <h6>
-                    <p>
-                        Ultimo accesso: <span id="ultimo-accesso">2 marzo alle 11:12</span>
-                    </p>
-                    <p>
-                        La tua ultima posizione è stata: <span id="ultima-posizione">Via Val di non, 2</span>
-                    </p>
+                    <p><span id="ultimo-accesso"></span></p>
+                    <p>La tua ultima posizione è stata: <span id="ultima-posizione">Via Val di non, 2</span></p>
                 </h6>
             </div>
         </header>
@@ -98,24 +93,24 @@
                         </div>
                         <div class="modal-body">
                             <div class="subcontainer">
-                                <div id="textcontainer">
-                                    <h1>Contattaci</h1>
-                                    <p>Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente dire ciao! contattaci siamo qui per voi </p>
+                                <div class="row">
+                                    <h1 class="col-md text-left">Contattaci</h1>
+                                    <p class="col-md text-left">Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente dire ciao! contattaci siamo qui per voi </p>
                                 </div>
                                 <form action="" method="post">
-                                    <div class="minicontainer" id="linefirst">
-                                        <p><input type="text" name="name" placeholder="Name"></p>
-                                        <p><input type="text" name="surname" placeholder="Surname"></p>
+                                    <div class="row">
+                                        <p class="col-md"><input type="text" name="name" placeholder="Name"></p>
+                                        <p class="col-md"><input type="text" name="surname" placeholder="Surname"></p>
                                     </div>
-                                    <div class="minicontainer" id="linesecond">
-                                        <p><input type="email" name="mail" placeholder="E-Mail"></p>
-                                        <p><input type="text" name="telephone" placeholder="Telephone"></p>
+                                    <div class="row">
+                                        <p class="col-md"><input type="email" name="mail" placeholder="E-Mail"></p>
+                                        <p class="col-md"><input type="text" name="telephone" placeholder="Telephone"></p>
                                     </div>
-                                    <div class="minicontainer" id="linethird">
-                                        <p><textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea></p>
+                                    <div class="row">
+                                        <p class="col-md"><textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea></p>
                                     </div>
-                                    <div class="minicontainer" id="linefourth">
-                                        <p><input type="checkbox" name="privacy" id="privacy"><label>I have read the <a href="privacy.html">privacy notice</a> and agree to have my personal details processed for purposes of the above mentioned request.</label></p>
+                                    <div class="">
+                                        <p class="col-md row"><input type="checkbox" name="privacy" id="privacy" class="col-md"><label class="col-md text-left">I have read the <a href="#">privacy notice</a> and agree to have my personal details processed for purposes of the above mentioned request.</label></p>
                                     </div>
                                     <div class="minicontainer" id="lineffifth">
                                         <input type="submit" value="Submit" class="button">
@@ -139,7 +134,7 @@
     <script src="../../node_modules/tether/dist/js/tether.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../javascript/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-fxKwF1sWWcV49zr9q0cT97l6fIqZj-E&callback=initMap"></script>
 </body>
 
 </html>
