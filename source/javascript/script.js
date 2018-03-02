@@ -82,14 +82,14 @@ function addTable (app) {
     sunrise.locale('it');
     var sunset = moment(app.sys.sunset*1000);
     sunset.locale('it');
-    /*$("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
+    $("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
     $("#description").text(app.weather[0].description);
     $("#pressure").text(app.main.pressure + " hpa");
     $("#humidity").text(app.main.humidity + "%");
     $("#iconimg").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
     $("#sunset").text(sunset);
     $("#sunrise").text(sunrise);
-    $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");*/
+    $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");
 } 
 function addName (app) {
     'use strict';

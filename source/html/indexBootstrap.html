@@ -57,50 +57,66 @@
         <main class="padding-custom">
             <div id="mappa"></div>
             <div class="container-fluid">
-            <div id="modale" class="modal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Contattaci</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="subcontainer">
-                                <div class="row">
-                                    <h1 class="col-md text-left">Contattaci</h1>
-                                    <p class="col-md text-left">Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente dire ciao! contattaci siamo qui per voi </p>
-                                </div>
-                                <form action="" method="post">
-                                    <div class="row">
-                                        <p class="col-md"><input type="text" name="name" placeholder="Name"></p>
-                                        <p class="col-md"><input type="text" name="surname" placeholder="Surname"></p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-md"><input type="email" name="mail" placeholder="E-Mail"></p>
-                                        <p class="col-md"><input type="text" name="telephone" placeholder="Telephone"></p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-md"><textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea></p>
-                                    </div>
-                                    <div class="">
-                                        <p class="col-md row"><input type="checkbox" name="privacy" id="privacy" class="col-md"><label class="col-md text-left">I have read the <a href="#">privacy notice</a> and agree to have my personal details processed for purposes of the above mentioned request.</label></p>
-                                    </div>
-                                </form>
+                <div id="modale" class="modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Contattaci</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="row">
-                                <input type="submit" value="Vai" class="btn btn-primary col-md">
-                                <input type="reset" value="Resetta" class="btn btn-primary col-md">
-                                <input type="button" value="Annulla" class="btn btn-secondary col-md" data-dismiss="modal">
+                            <div class="modal-body">
+                                <div class="subcontainer">
+                                    <div class="row">
+                                        <h1 class="col-md text-left">Contattaci</h1>
+                                        <p class="col-md text-left">Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente
+                                            dire ciao! contattaci siamo qui per voi </p>
+                                    </div>
+                                    <form action="" method="post">
+                                        <div class="row">
+                                            <p class="col-md">
+                                                <input type="text" name="name" placeholder="Name">
+                                            </p>
+                                            <p class="col-md">
+                                                <input type="text" name="surname" placeholder="Surname">
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-md">
+                                                <input type="email" name="mail" placeholder="E-Mail">
+                                            </p>
+                                            <p class="col-md">
+                                                <input type="text" name="telephone" placeholder="Telephone">
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-md">
+                                                <textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea>
+                                            </p>
+                                        </div>
+                                        <div class="">
+                                            <p class="col-md row">
+                                                <input type="checkbox" name="privacy" id="privacy" class="col-md">
+                                                <label class="col-md text-left">I have read the
+                                                    <a href="#">privacy notice</a> and agree to have my personal details processed for
+                                                    purposes of the above mentioned request.</label>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <input type="submit" value="Vai" class="btn btn-primary col-md">
+                                    <input type="reset" value="Resetta" class="btn btn-primary col-md">
+                                    <input type="button" value="Annulla" class="btn btn-secondary col-md" data-dismiss="modal">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+
                 <div class="row justify-content-md-center">
                     <h1 class="padding-custom">Previsioni metereologiche per
                         <span id="actualLocation"></span>
@@ -111,33 +127,34 @@
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <th>Vento</th>
-                                <td></td>
+                                <th>Temperatura</th>
+                                <td id="temperature"></td>
                             </tr>
-
-
+                            <tr>
+                                <th>Vento</th>
+                                <td id="wind"></td>
+                            </tr>
                             <tr>
                                 <th>Nuvolosità</th>
-                                <td></td>
+                                <td id="description"></td>
                             </tr>
                             <tr>
                                 <th>Pressione</th>
-                                <td></td>
+                                <td id="pressure"></td>
                             </tr>
                             <tr>
                                 <th>Umidità</th>
-                                <td></td>
+                                <td id="humidity"></td>
 
                             </tr>
                             <tr>
                                 <th>Alba</th>
-                                <td></td>
+                                <td id="sunset"></td>
 
                             </tr>
                             <tr>
                                 <th>Tramonto</th>
-                                <td></td>
-
+                                <td id="sunrise"></td>
                             </tr>
                         </tbody>
                     </table>
