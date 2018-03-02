@@ -1,16 +1,19 @@
 .bg-nav {
-    background-color:  #00a6cc;
-    box-shadow: 0px 4px 8px grey;
+    background-color:  #00779b;
+}
+
+body {
+    background-color: #00a6cc;
 }
 
 .jumbotron {
-    background-color: #fff;
+    background-color: #00a6cc;
+    color: #88e3ff;
     margin-bottom: 0px;
 }
 
-.badge-custom {
-    background-color: #00a6cc;
-    color: white;
+.container-fluid {
+    padding: 0px;
 }
 
 .padding-custom {
@@ -28,4 +31,12 @@
 
 .jumbotron h5 span:first-child {
     margin-bottom: 10px;
+}
+
+#weatherImage {
+    width: 100px;
+}
+
+.card {
+    background-color: whitesmoke;
 }

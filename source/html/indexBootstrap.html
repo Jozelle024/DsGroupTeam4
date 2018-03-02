@@ -14,13 +14,15 @@
     <div class="container-fluid">
         <header>
             <nav class="navbar navbar-toggleable-md navbar-inverse bg-nav">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <span class="navbar-brand">
+                    <img src="../images/dsgroup_logo_small.png">
+                </span>
 
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#indexBootstrap.html">Previsioni</a>
@@ -37,91 +39,54 @@
                 </div>
             </nav>
             <div class="jumbotron padding-custom">
-                <h1 class="display-3">Benvenuto,<span id="nome-utente">nome utente</span>!</h1>
-                <h5>
-                    <span class="badge badge-custom">Ultimo accesso:
-                        <span id="ultimo-accesso">2 marzo alle 11:12</span>
-                    </span>
-                    <span class="badge badge-custom">La tua ultima posizione è stata
-                        <span id="ultima-posizione">Via Val di non, 2</span>
-                    </span>
-                </h5>
+                <h1 class="display-3">Benvenuto,
+                    <span id="nome-utente">nome utente</span>!</h1>
+                <h6>
+                    <p>
+                        Ultimo accesso: <span id="ultimo-accesso">2 marzo alle 11:12</span>
+                    </p>
+                    <p>
+                        La tua ultima posizione è stata: <span id="ultima-posizione">Via Val di non, 2</span>
+                    </p>
+                </h6>
             </div>
         </header>
-        <hr>
         <main class="padding-custom">
-            <section></section>
-                <div id="mappa">MAPPA</div>
-            </section>
+            <div id="mappa"></div>
             <div class="container-fluid">
-                    <div class="row justify-content-center">
-                    <h1>Previsioni metereologiche per <span id="actualLocation"> città</span></h1>
-                    </div>
                 <div class="row justify-content-center">
-
-
-                        <div class="card" style="width: 20rem;">
-                                <img class="card-img-top" src="..." alt="Card image cap">
-                                <div class="card-block">
-                                  <h4 class="card-title">Card title</h4>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                              </div>
-                        <section class="meteostats">
-                            <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">
-                            <div id="maininfo">
-                                <p id="riepilogoMeteo">Sunny </p>
-                            </div>
-                            <table>
+                    <table class="table table-hover">
+                            <thead>
                                 <tr>
-                                    <td>Vento</td>
-                                    <td id="windData">LightBreeze</td>
-
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
                                 </tr>
                                 <tr>
-                                    <td>Nuvolosità</td>
-                                    <td id="cloudData">Scattered</td>
-
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
                                 </tr>
                                 <tr>
-                                    <td>Pressione</td>
-                                    <td id="pressureData"></td>
-
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
                                 </tr>
-                                <tr>
-                                    <td>Umidità</td>
-                                    <td id="humidityData"></td>
-
-                                </tr>
-                                <tr>
-                                    <td>Alba</td>
-                                    <td id="sunriseData"></td>
-
-                                </tr>
-                                <tr>
-                                    <td>Tramonto</td>
-                                    <td id="sunsetData"></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>Coordinate Geografiche</td>
-                                    <td id="coordsData"></td>
-
-                                </tr>
+                            </tbody>
                             </table>
-                        </section>
-                    </div>
+                    
                 </div>
-
-
-
-
-
-
-
-
+            </div>
         </main>
     </div>
     <script src="../../node_modules/moment/min/moment.min.js"></script>
