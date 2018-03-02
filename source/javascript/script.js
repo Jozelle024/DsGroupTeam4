@@ -30,6 +30,7 @@ $(document).ready(function() {
         addName (datap);
     });
     setTimeout( function() {
+        
         url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + pos.lat + "," + pos.lng + "&key=AIzaSyD-fxKwF1sWWcV49zr9q0cT97l6fIqZj-E";
         $.getJSON(url, function(datal) {
             addLocation (datal);
