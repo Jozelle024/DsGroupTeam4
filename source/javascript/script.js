@@ -6,7 +6,7 @@
 
 //Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
 //alcuni elementi grafici e rendere responsive l'applicazione
-window.addEventListener('resize', responsive());
+//window.addEventListener('resize', responsive());
 
 
 
