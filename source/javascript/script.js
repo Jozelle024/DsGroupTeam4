@@ -51,12 +51,12 @@ function initMap() {
                 position: pos,
                 draggable: false,
                 map: map,
-                //icon: "../IMG/location.png"
+                icon: "../images/location.png"
             });
             map.setCenter(pos);
-            setTimeout( function() {
-                //$("#loader").css("display", "none");
-            }, 5000);
+            /*setTimeout( function() {
+                $("#loader").css("display", "none");
+            }, 5000);*/
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
