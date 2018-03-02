@@ -23,7 +23,6 @@
   "homepage": "https://github.com/sorrentmutie/DsGroupTeam4#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
-    "jQuery": "^1.7.4",
     "jquery": "^3.3.1",
     "moment": "^2.20.1"
   },
