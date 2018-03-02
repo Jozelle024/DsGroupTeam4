@@ -19,3 +19,9 @@ div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-co
 div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row input.col-md {
     max-width: 5%;
 }
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-footer div.row {
+    width: 50%;
+}
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-footer div.row input.btn.col-md {
+    margin: 0% 1%;
+}
