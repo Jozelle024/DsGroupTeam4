@@ -18,7 +18,6 @@ $(document).ready(function() {
             $(document).delay(2000);
             addTable (dataw);
             //functionGo ();
-            console.log (pos);
         });
     }, 10000);
     /*var url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + pos.lat + "&lon=" + pos.lng + "&APPID=ee6b293d773f4fcd7e434f79bbc341f2";
