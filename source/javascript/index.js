@@ -13,34 +13,24 @@ function initializePage() {
     var date = moment();
     var userInfo = {};
 
-    if (localStorage && localStorage.getItem('name')) {
-        var welcomeString = "";
-
+    if (sessionStorage && sessionStorage.getItem('welcomeString')) {
         localStorage.setItem('lastAccess', date.format('LLLL'));
-
-        if (localStorage.getItem('gender') === 'male') {
-            welcomeString = `Benvenuto ${localStorage.getItem('name')} ${localStorage.getItem('surname')}`;
-        } else {
-            welcomeString = `Benvenuta ${localStorage.getItem('name')} ${localStorage.getItem('surname')}`;
-        }
-
         document.getElementById('ultimo-accesso').innerText = localStorage.getItem('lastAccess');
-        document.getElementById('nome-utente').innerText = welcomeString;
+        document.getElementById('nome-utente').innerText = localStorage.getItem('welcomeString');
     } else {
         $.getJSON('https://randomuser.me/api/', function(data) {
-            console.log(data.results[0]);
-            userInfo.name = data.results[0].name.first;
-            userInfo.surname = data.results[0].name.last;
-            userInfo.gender = data.results[0].gender;
-            localStorage.setItem('name', userInfo.name);
-            localStorage.setItem('surname', userInfo.surname);
-            localStorage.setItem('gender', userInfo.gender);
+            if (data.results[0].gender === 'male') {
+                var welcomeString = `Benvenuto, ${data.results[0].name.first} ${data.results[0].name.first}`;
+            } else {
+                var welcomeString = `Benvenuta, ${data.results[0].name.first} ${data.results[0].name.last}`;
+            }
+            localStorage.setItem('welcomeString', welcomeString);
+            localStorage.setItem('gender', data.results[0].gender);
             userInfo.lastAccess = localStorage.lastAccess || 'Mai';
             localStorage.setItem('lastAccess' , date.format('LLLL'));
-            document.getElementById('nome-utente').innerText = userInfo.name;
+            document.getElementById('nome-utente').innerText = welcomeString;
             document.getElementById('ultimo-accesso').innerText = userInfo.lastAccess;
         });
-
     }
     //miaFunzioneCallback();
 }
