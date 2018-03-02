@@ -1,10 +1,16 @@
 .bg-nav {
-    background-color:  #00a6cc;
-    box-shadow: 0px 4px 8px grey;
+    background-color:  #00779b;
+}
+
+body {
+    background-color: #00a6cc;
+    color: white;
 }
 
 .jumbotron {
-    background-color: #fff;
+    background-color: #00a6cc;
+    color: white;
+    margin-bottom: 0px;
 }
 
 #mappa {
@@ -25,3 +31,37 @@ div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-co
 div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-footer div.row input.btn.col-md {
     margin: 0% 1%;
 }
+.container-fluid {
+    padding: 0px;
+}
+
+.padding-custom {
+    padding: 32px;
+}
+
+#mappa {
+    height: 300px;
+}
+
+.bg-footer{
+    background-color:  #00a6cc;   
+}
+.separator{
+    margin: 0 15%;
+}
+
+#socialMedia{
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.container-fluid hr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.jumbotron h5 span:first-child {
+    margin-bottom: 10px;
+}
+
+

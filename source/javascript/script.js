@@ -135,6 +135,7 @@ function createStorage (app) {
     }
 }
 function controlName (vet, data) {
+    'use strict';
     for (var cont=0; cont<vet.length;cont++) {
         if (vet[cont].nomeUtente === data.nomeUtente) {
             return cont;
