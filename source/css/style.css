@@ -19,11 +19,19 @@ body {
 div.container-fluid main.padding-custom div#modale div.modal-dialog {
     max-width: 90%;
 }
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content{
+    background-color: #00a6cc;
+}
 div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div.row p.col-md input, div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div.row p.col-md textarea, div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row label {
     width: 100%;
 }
+div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row label a {
+    color: #000000;
+}
 div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-body div.subcontainer form div p.col-md.row input.col-md {
-    max-width: 5%;
+    max-width: 2%;
+    align-self: center;
+    transform: translateY(-5px);
 }
 div.container-fluid main.padding-custom div#modale div.modal-dialog div.modal-content div.modal-footer div.row {
     width: 50%;

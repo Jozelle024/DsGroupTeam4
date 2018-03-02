@@ -57,6 +57,43 @@
         <main class="padding-custom">
             <div id="mappa"></div>
             <div class="container-fluid">
+                <div class="row justify-content-md-center">
+                    <h1 class="padding-custom">Previsioni metereologiche per
+                        <span id="actualLocation"></span>
+                    </h1>
+                    <div>
+                        <!--<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">-->
+                    </div>
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th>Vento</th>
+                                <td id="wind"></td>
+                            </tr>
+                            <tr>
+                                <th>Nuvolosità</th>
+                                <td id="description"></td>
+                            </tr>
+                            <tr>
+                                <th>Pressione</th>
+                                <td id="pressure"></td>
+                            </tr>
+                            <tr>
+                                <th>Umidità</th>
+                                <td id="humidity"></td>
+                            </tr>
+                            <tr>
+                                <th>Alba</th>
+                                <td id="sunrise"></td>
+                            </tr>
+                            <tr>
+                                <th>Tramonto</th>
+                                <td id="sunset"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div id="modale" class="modal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -96,93 +133,6 @@
                                 <input type="reset" value="Resetta" class="btn btn-primary col-md">
                                 <input type="button" value="Annulla" class="btn btn-secondary col-md" data-dismiss="modal">
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-                <div class="row justify-content-md-center">
-                    <h1 class="padding-custom">Previsioni metereologiche per
-                        <span id="actualLocation"></span>
-                    </h1>
-                    <div>
-                        <!--<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">-->
-                    </div>
-                    <table class="table table-hover">
-                        <tbody>
-                            <tr>
-                                <th>Vento</th>
-                                <td></td>
-                            </tr>
-
-
-                            <tr>
-                                <th>Nuvolosità</th>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Pressione</th>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Umidità</th>
-                                <td></td>
-
-                            </tr>
-                            <tr>
-                                <th>Alba</th>
-                                <td></td>
-
-                            </tr>
-                            <tr>
-                                <th>Tramonto</th>
-                                <td></td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="modale" class="modal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Contattaci</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="subcontainer">
-                                <div id="textcontainer">
-                                    <h1>Contattaci</h1>
-                                    <p>Hai qualche domanda? Vuoi sapere di piu? Vuoi dare la tua opinione? O semplicemente dire ciao! contattaci siamo qui per voi </p>
-                                </div>
-                                <form action="" method="post">
-                                    <div class="minicontainer" id="linefirst">
-                                        <p><input type="text" name="name" placeholder="Name"></p>
-                                        <p><input type="text" name="surname" placeholder="Surname"></p>
-                                    </div>
-                                    <div class="minicontainer" id="linesecond">
-                                        <p><input type="email" name="mail" placeholder="E-Mail"></p>
-                                        <p><input type="text" name="telephone" placeholder="Telephone"></p>
-                                    </div>
-                                    <div class="minicontainer" id="linethird">
-                                        <p><textarea name="aboutme" cols="30" rows="10" placeholder="Massege"></textarea></p>
-                                    </div>
-                                    <div class="minicontainer" id="linefourth">
-                                        <p><input type="checkbox" name="privacy" id="privacy"><label>I have read the <a href="privacy.html">privacy notice</a> and agree to have my personal details processed for purposes of the above mentioned request.</label></p>
-                                    </div>
-                                    <div class="minicontainer" id="lineffifth">
-                                        <input type="submit" value="Submit" class="button">
-                                        <input type="reset" value="Reset" class="button">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="avviaContatore" type="button" class="btn btn-primary">OK</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
                         </div>
                     </div>
                 </div>

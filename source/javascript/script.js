@@ -82,14 +82,14 @@ function addTable (app) {
     sunrise.locale('it');
     var sunset = moment(app.sys.sunset*1000);
     sunset.locale('it');
-    /*$("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
+    $("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
     $("#description").text(app.weather[0].description);
     $("#pressure").text(app.main.pressure + " hpa");
     $("#humidity").text(app.main.humidity + "%");
-    $("#iconimg").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
-    $("#sunset").text(sunset);
-    $("#sunrise").text(sunrise);
-    $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");*/
+    //$("#iconimg").attr("src","https://openweathermap.org/img/w/" + app.weather[0].icon + ".png");
+    $("#sunset").text((new Date(app.sys.sunset*1000)).toLocaleTimeString());
+    $("#sunrise").text((new Date(app.sys.sunrise*1000)).toLocaleTimeString());
+    $("#temperature").text((app.main.temp-274.15).toFixed (0) + "°C");
 } 
 function addName (app) {
     'use strict';
@@ -107,8 +107,6 @@ function createStorage (app) {
     var data = {
         nomeUtente: app.results[0].name.first + " " + app.results[0].name.last,
         ultimoAccesso: date.format('LLLL')
-        /*nomeUtente: "dwayne smith",
-        ultimoAccesso: "sssss"*/
     };
     var vet = [];
     if (localStorage) {
@@ -127,7 +125,6 @@ function createStorage (app) {
             }
         } else {
             vet.push(data);
-            // Re-serialize the array back into a string and store it in localStorage
             localStorage.setItem('sessione', JSON.stringify(vet));
             console.log ("primo");
             return data;
