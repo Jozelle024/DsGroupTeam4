@@ -10,3 +10,10 @@
 #map {
     height: 300px;
 }
+
+.bg-footer{
+    background-color:  #00a6cc;   
+}
+.bg-copyright{
+    background-color: #00779b;
+}

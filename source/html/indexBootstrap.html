@@ -37,34 +37,118 @@
             </nav>
 
             <div class="jumbotron">
-                <h1 class="display-3">Benvenuto, <span id="nome-utente">nome utente</span>!</h1>
-                <p class="lead">Ultimo accesso: <span id="ultimo-accesso">2 marzo alle 11:12</span></p>
+                <h1 class="display-3">Benvenuto,
+                    <span id="nome-utente">nome utente</span>!</h1>
+                <p class="lead">Ultimo accesso:
+                    <span id="ultimo-accesso">2 marzo alle 11:12</span>
+                </p>
                 <hr class="my-4">
             </div>
 
 
             <div id="map"></div>
-
-
-
-
-
-
-
         </header>
 
+        <main>
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <section class="meteostats">
+                        <h1 id="actualLocation"></h1>
+                        <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Weather-Sun-icon.png" id="weatherImage">
+                        <div id="maininfo">
+                            <p id="riepilogoMeteo">Sunny </p>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>Vento</td>
+                                <td id="windData">LightBreeze</td>
+
+                            </tr>
+                            <tr>
+                                <td>Nuvolosità</td>
+                                <td id="cloudData">Scattered</td>
+
+                            </tr>
+                            <tr>
+                                <td>Pressione</td>
+                                <td id="pressureData"></td>
+
+                            </tr>
+                            <tr>
+                                <td>Umidità</td>
+                                <td id="humidityData"></td>
+
+                            </tr>
+                            <tr>
+                                <td>Alba</td>
+                                <td id="sunriseData"></td>
+
+                            </tr>
+                            <tr>
+                                <td>Tramonto</td>
+                                <td id="sunsetData"></td>
+
+                            </tr>
+
+                            <tr>
+                                <td>Coordinate Geografiche</td>
+                                <td id="coordsData"></td>
+
+                            </tr>
+
+                        </table>
+
+                    </section>
+                </div>
+            </div>
+        </main>
 
 
+        <footer>
+                <!--Footer Links-->
+          <div class="container-fluid text-center text-md-left bg-footer">
+                <div class="row">
+        
+                    <!--First column-->
+                    <div class="col-md-9">
+                        <h5 class="text-uppercase">Footer Content</h5>
+                        <p>Here you can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <!--/.First column-->
+        
+                    <!--Second column-->
+                    <div class="col-md-3">
+                        <h5 class="text-uppercase">Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#!">Home</a></li>
+                            <li><a href="#!">Weather</a></li>
+                            <li><a href="#!">News</a></li>
+                            <li><a href="#!">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!--/.Second column-->
+                </div>
+            </div>
+            <!--/.Footer Links-->
+        
+            <!--Copyright-->
+            <div class="footer-copyright py-3 text-center bg-copyright">
+                <div class="container-fluid">
+                        Copyright © 1999-2018 RTI S.p.A. Interactive Media - P.Iva 03976881007 - Tutti i diritti riservati l Per la pubblicità Mediamond S.p.a.
+                        RTI spa, Gruppo Mediaset / Sede legale l - 00187 Roma Largo del Nazareno 8 / Cap. Soc. € 500.000.007,00 int. vers. / Registro delle Imprese di Roma, C.F.06921720154
+                </div>
+            </div>
+        </footer>
 
 
-    </div>
-    <script src="../../node_modules/moment/min/moment.min.js"></script>
-    <script src="../../node_modules/moment/locale/it.js"></script>
-    <script src="../../node_modules/jQuery/dist/jquery.js"></script>
-    <script src="../../node_modules/tether/dist/js/tether.js"></script>
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <!--<script src="../javascript/script.js"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA"></script>
+        </div>
+        <script src="../../node_modules/moment/min/moment.min.js"></script>
+        <script src="../../node_modules/moment/locale/it.js"></script>
+        <script src="../../node_modules/jQuery/dist/jquery.js"></script>
+        <script src="../../node_modules/tether/dist/js/tether.js"></script>
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <!--<script src="../javascript/script.js"></script>-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1EHAsI359U-bXcnQc_2QdDCZ7eG4T8ZA"></script>
 </body>
 
 </html>
