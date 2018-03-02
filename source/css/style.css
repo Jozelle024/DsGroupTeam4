@@ -5,8 +5,27 @@
 
 .jumbotron {
     background-color: #fff;
+    margin-bottom: 0px;
 }
 
-#map {
+.badge-custom {
+    background-color: #00a6cc;
+    color: white;
+}
+
+.padding-custom {
+    padding: 32px;
+}
+
+#mappa {
     height: 300px;
+}
+
+.container-fluid hr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.jumbotron h5 span:first-child {
+    margin-bottom: 10px;
 }
