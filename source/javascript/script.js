@@ -49,14 +49,13 @@ function initMap() {
             pos.lng = position.coords.longitude;
             var marker = new google.maps.Marker({
                 position: pos,
-                draggable: true,
-                animation: google.maps.Animation.DROP,
+                draggable: false,
                 map: map,
-                icon: "../IMG/location.png"
+                //icon: "../IMG/location.png"
             });
             map.setCenter(pos);
             setTimeout( function() {
-                $("#loader").css("display", "none");
+                //$("#loader").css("display", "none");
             }, 5000);
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -69,7 +68,7 @@ function initMap() {
 //Questa funzione mi permette di gestire il caso in cui c'è un errore sulla posizione della Geolocalizzazione
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ? window.location.replace("../HTML/error.html") : 'Errore: Il tuo Browser non sopporta Geolocalizzazione');
+    infoWindow.setContent(browserHasGeolocation ? window.location.replace("../html/error.html") : 'Errore: Il tuo Browser non sopporta Geolocalizzazione');
     infoWindow.open(map);
 }
 //function add text
@@ -77,7 +76,9 @@ function addTable (app) {
     var sunrise = moment(app.sys.sunrise*1000);
     sunrise.locale('it');
     console.log (sunrise);
-    var sunset = moment(app.sys.sunset*1000).locale('it');
+    var sunset = moment(app.sys.sunset*1000);
+    sunset.locale('it');
+    console.log (sunset);
     /*$("#wind").text(app.wind.speed + " m/s " + windDirection((app.wind.deg).toFixed (2)));
     $("#description").text(app.weather[0].description);
     $("#pressure").text(app.main.pressure + " hpa");
@@ -148,6 +149,10 @@ function windDirection (deg) {
     if (deg>326.25 && deg<348.75) {
         return north+"-"+north+"-"+west+"("+deg+")";
     }
+}
+function addLocation (app) {
+    $("#city").text(app.results[0].address_components[2].long_name);
+    $("#country").text(app.results[0].address_components[6].long_name);
 }
 //Aggiungo queste event listner sull'evento di resizing della finestra per andare a gestire
 //alcuni elementi grafici e rendere responsive l'applicazione
@@ -247,7 +252,7 @@ function funzionePosizioneTrovata(position){
         });
 
         //Richiamo il bindingJSON per richiedere le informazioni che mi servono
-        bindingJSON(latitudine,longitudine);
+        //bindingJSON(latitudine,longitudine);
     }
 }
 //Questa funzione mi permette di recuperare le informazioni precedenti, dopo di ché
@@ -287,8 +292,8 @@ function previusPosition(){
 //Questa funzione è una funzione wrapper 
 function funzioneCallbackMaps(){
     'use strict';
-    actualPosition();
-    previusPosition();
+    //actualPosition();
+    //previusPosition();
 }
 //Questa funzione mi permette di andare a recuperare l'ultima data a cui ho fatto accesso
 function restoreLastDate(){
@@ -329,9 +334,9 @@ function restoreName(){
 //Funzione che mi permette di inizializzare la mia pagina: funge da funzione wrapper per le singole funzioni
 function initFunction(){
     'use strict';
-    restoreName();
-    restoreLastDate();
-    funzioneCallbackMaps();
+    //restoreName();
+    //restoreLastDate();
+    //funzioneCallbackMaps();
 }
 /*
 $(document).ready(function() {
